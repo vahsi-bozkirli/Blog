@@ -8,8 +8,8 @@ def index(request):
     }
     return render(request,"BlogApp/index.html",context)
 
-def blog(request, id):
-    blog = Blog.objects.get(id=str(id))
+def blog(request, slug):
+    blog = Blog.objects.get(slug=slug)
     return render(request,"BlogApp/content.html",{
         "blog":blog
     })
