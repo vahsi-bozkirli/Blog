@@ -1,10 +1,12 @@
 {% extends 'BlogApp/index.html' %}
+{% block title %} {{ blog.title }} {% endblock %}
 {% block content %}
 <span>
     <h4><a href="{% url 'index' %}">Home</a></h4>
 </span>
 <hr>
 <div>
+    <h4><strong> {{ blog.title }} </strong></h4>
     <p>
         {{ blog.desc }}
     </p>
@@ -14,23 +16,17 @@
 <div>
     <table>
         <tr>
-            <td>
-                <strong>
+            <td><strong>
                     başlama tarihi
-                </strong>
+            </strong></td>
+            <td>
+                {{ blog.start_datetime }}
             </td>
         </tr>
-            <td>
-                <td>
-                    {{ blog.start_datetime }}
-                </td>
-            </td>
         <tr>
-            <td>
-                <strong>
+            <td><strong>
                     yayinlanma tarihi
-                </strong>
-            </td>
+            </strong></td>
             <td>
                 {{ blog.publish_datetime }}
             </td>

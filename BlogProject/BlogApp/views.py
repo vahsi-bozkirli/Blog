@@ -6,7 +6,7 @@ def index(request):
     context = {
         "blogs":Blog.objects.all()
     }
-    return render(request,"BlogApp/frames/_blogs.html",context)
+    return render(request,"BlogApp/index.html",context)
 
 def blog(request, id):
     blog = Blog.objects.get(id=str(id))

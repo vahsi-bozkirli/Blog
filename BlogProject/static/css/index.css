@@ -1,6 +1,6 @@
 table, tr, td{
     width: 50%;
-    border: 1px dotted rgb(0, 131, 81);
+    border: 10px solid olivedrab;
     border-collapse: collapse;
     padding: 10px;
 }

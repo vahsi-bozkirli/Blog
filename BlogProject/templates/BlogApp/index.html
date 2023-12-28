@@ -1,5 +1,4 @@
 {% load static %}
-{% block title %} {{ blog.title }} {% endblock %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +7,24 @@
     {% block css_files %}
         <link rel="stylesheet" href="{% static 'css/index.css' %}">
     {% endblock %}
+    <title>
+        {% block title %} Anasayfa {% endblock %}
+    </title>
 </head>
 <body>
-    <frameset cols="50%,50%">
-        <frame src="{% include 'BlogApp/frames/_blogs.html' %}">
-        <frame src="{% include 'BlogApp/frames/_contact.html' %}">
-    </frameset>
+    <table>
+        {% for blog in blogs %}
+        <tr>
+            <td>
+                <a href="{% url 'content' blog.id %}"> {{ blog.title }} </a>
+            </td>
+            <td>
+                {{ blog.publish_datetime }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% block content %}
+    {% endblock %}
 </body>
 </html>
