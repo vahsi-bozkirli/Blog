@@ -1,0 +1,16 @@
+{% load static %}
+<table>
+    {% for blog in blogs %}
+    <tr>
+        <td>
+            <a href="{% url 'content' blog.id %}"> {{ blog.title }} </a>
+        </td>
+        <td>
+            {{ blog.publish_datetime }}
+        </td>
+    </tr>
+    {% endfor %}
+
+    {% block content %}
+    {% endblock %}
+</table>

@@ -1,0 +1,18 @@
+{% load static %}
+{% block title %} {{ blog.title }} {% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block css_files %}
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    {% endblock %}
+</head>
+<body>
+    <frameset cols="50%,50%">
+        <frame src="{% include 'BlogApp/frames/_blogs.html' %}">
+        <frame src="{% include 'BlogApp/frames/_contact.html' %}">
+    </frameset>
+</body>
+</html>
