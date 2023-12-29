@@ -4,3 +4,7 @@ table, tr, td{
     border-collapse: collapse;
     padding: 5px;
 }
+
+.image-container{
+    text-align: center;
+}

@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from .models import Blog
+from .models import Blog,MainPage
 
 # Create your views here.
 def index(request):
     context = {
-        "blogs":Blog.objects.all()
+        "blogs":Blog.objects.all(),
+        "main":MainPage.objects.all()
     }
     return render(request,"BlogApp/index.html",context)
 

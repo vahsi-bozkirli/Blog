@@ -12,6 +12,14 @@
     </title>
 </head>
 <body>
+
+    {% for img in main %}
+    <div class="image-container" style="text-align: center;">
+        <img src="{{ img.image.url }}" alt="main image" width="100%" height="260">
+    </div>
+    {% endfor %}
+
+
     <table>
         {% for blog in blogs %}
         <tr>

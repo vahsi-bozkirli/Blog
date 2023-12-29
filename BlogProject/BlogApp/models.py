@@ -2,6 +2,9 @@ from django.db import models
 from django.utils.text import slugify
 
 # Create your models here.
+class MainPage(models.Model):
+    image = models.ImageField(upload_to="on_main")
+
 class Blog(models.Model):
     slug = models.SlugField(null=False,unique=True,db_index=True,editable=False)
     title = models.CharField(max_length=150)
