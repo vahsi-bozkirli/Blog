@@ -19,18 +19,9 @@
     </div>
     {% endfor %}
 
-    <table>
-        {% for blog in blogs %}
-        <tr>
-            <td>
-                <a href="{% url 'content' blog.slug %}"> {{ blog.title }} </a>
-            </td>
-            <td>
-                {{ blog.publish_datetime }}
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
+    {% include 'BlogApp/partials/_blog_table.html' %}
+    {% include 'BlogApp/partials/_paginator.html' %}
+
     {% block content %}
     {% endblock %}
 </body>

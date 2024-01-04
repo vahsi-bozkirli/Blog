@@ -1,0 +1,6 @@
+table, tr, td{
+    width: 50%;
+    border: 1px dotted rgb(0, 128, 74);
+    border-collapse: collapse;
+    padding: 1px;
+}
