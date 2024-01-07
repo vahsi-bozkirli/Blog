@@ -19,11 +19,6 @@
     </div>
     {% endfor %}
 
-    <form action="{% url 'search' %}">
-        <input type="text" name="q" id="" placeholder="anahtar kelime girin">
-        <button>Ara</button>
-    </form>
-
     {% include 'BlogApp/partials/_blog_table.html' %}
     {% include 'BlogApp/partials/_paginator.html' %}
 

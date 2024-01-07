@@ -20,10 +20,10 @@ class Tags(models.Model):
 
 class Blog(models.Model):
     slug = models.SlugField(null=False,unique=True,db_index=True,editable=False)
-    title = models.CharField(max_length=150)
-    desc = RichTextField()
-    start_datetime = models.DateTimeField()
-    publish_datetime = models.DateTimeField()
+    title = models.CharField(max_length=150, null=False)
+    desc = RichTextField(null=False)
+    start_datetime = models.DateTimeField(null=False)
+    publish_datetime = models.DateTimeField(null=False)
     is_active = models.BooleanField(default=False)
     tags = models.ManyToManyField(Tags)
 
