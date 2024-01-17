@@ -11,27 +11,18 @@
 </span>
 <hr>
 <div>
-    {% if error %}
-    <span>
-        <h4 style="background-color: rgba(190, 28, 0, 0.568);">
-            <strong>{{ msg }}</strong>
-        </h4>
-    </span>
-    {% endif %}
-
-    <form action="{% url 'create_post' %}" method="POST" novalidate>
+    <form method="POST" novalidate>
         {% csrf_token %}
 
-        {% for field in form %}
         <div class="{% if field.errors %} invalid {% endif %}">
-            {{ field.errors }}
-            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-            {{ field }}
+            <div>
+                <h4><strong> {{ blog.title }} </strong></h4>
+                <p> {{ blog.desc }} </p>
+                
+            </div> silinmesini istiyor musunuz?
         </div>
         <hr>
-        {% endfor %}
-
-        <button>Kaydet</button>
+        <button>SİL</button>
     </form>
 </div>
 {% endblock %}

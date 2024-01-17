@@ -1,8 +1,22 @@
 from django import forms
+from django.forms import widgets
+from .models import Blog
 
-class BlogForm(forms.Form):
-    title = forms.CharField()
-    desc = forms.CharField(widget=forms.Textarea)
-    start_datetime = forms.DateTimeField()
-    publish_datetime = forms.DateTimeField()
-    is_active = forms.BooleanField()
+class BlogForm(forms.ModelForm):
+    class Meta:
+        model = Blog
+        fields = "__all__"
+        labels = {
+            "title":"Title"
+        },
+        widgets = {
+            "title": widgets.TextInput(attrs={"class":"class_1"}),
+            "tags": widgets.CheckboxSelectMultiple(),
+            "start_datetime": widgets.TextInput(attrs={'type': 'datetime-local'})
+        },
+        error_messages = {
+            "title": {
+                "required":"required field",
+                "max_length":"max 120 character"
+            }
+        }

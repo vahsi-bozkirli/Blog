@@ -1,0 +1,9 @@
+.errorlist{
+    list-style-type: none;
+    color: red;
+}
+
+.invalid input, .invalid textarea{
+    border-color: red;
+    
+}
