@@ -18,10 +18,4 @@ class BlogAdmin(admin.ModelAdmin):
 class TagsAdmin(admin.ModelAdmin):
     list_display = ("tag",)
 
-
-
-
-
-
-
 admin.site.register(MainPage)
