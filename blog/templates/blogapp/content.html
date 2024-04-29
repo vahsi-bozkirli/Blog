@@ -1,0 +1,28 @@
+{% extends 'blogapp/index.html' %}
+{% block title %}{{ blog.title }} {% endblock %}
+{% block content %}
+<span>
+    <h4><a href="{% url 'index' %}">Home</a></h4>
+</span>
+<hr>
+<div>
+    <h4><strong> {{ blog.title }} </strong></h4>
+    <p>
+        {{ blog.desc|safe }}
+    </p>
+</div>
+<hr>
+
+<div>
+    <table>
+        <tr>
+            <td><strong>
+                    yayinlanma tarihi
+            </strong></td>
+            <td>
+                {{ blog.date }}
+            </td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

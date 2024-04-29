@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block css_files %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock %}
+    {% block js_files %}
+        <script src="{% static 'js/kapat.js' %}"></script>
+    {% endblock %}
+    <title>
+        {% block title %} Anasayfa {% endblock %}
+    </title>
+</head>
+<body>
+    
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li id="messageList">
+            {{ message }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <ul>
+        {% if user.is_authenticated %}
+        <li>
+            <label for="username">username: </label>
+            <label>{{ user.username }}</label>
+
+            <a href="{% url 'user_logout' %}">user logout</a>
+            
+            <a href="{% url 'create_post' %}">post yaz</a>
+
+        </li>
+
+        <table>
+            {% for blog in blogs %}
+            <tr>
+                <td>{{ blog.date }}</td>
+                <td><a href="{% url 'content' blog.slug %}">{{ blog.title }}</a></td>
+                <td>   
+                    <a href="{% url 'delete_post' blog.slug %}">post sil</a>
+                </td>
+                <td>
+                    <a href="{% url 'update_post' blog.slug %}">post güncelle</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        {% else %}
+        <li>
+            <a href="{% url 'user_login' %}">user login</a>
+        </li>
+        <li>
+            <a href="{% url 'user_register' %}">user register</a>
+        </li>
+
+        <table>
+            {% for blog in blogs %}
+            <tr>
+                <td>{{ blog.date }}</td>
+                <td><a href="{% url 'content' blog.slug %}">{{ blog.title }}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        {% endif %}
+    </ul>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

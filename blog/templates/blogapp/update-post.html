@@ -1,0 +1,29 @@
+{% extends 'blogapp/index.html' %}
+{% load static %}
+{% block title %} {{ blog.title }} {% endblock %}
+{% block content %}
+{% block css_files %}
+        <link rel="stylesheet" href="{% static 'css/errors.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+<span>
+    <h4><a href="{% url 'index' %}">Home</a></h4>
+</span>
+<hr>
+<div>
+    <form method="POST" novalidate>
+        {% csrf_token %}
+
+        {% for field in form %}
+        <div class="{% if field.errors %} invalid {% endif %}">
+            {{ field.errors }}
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+        </div>
+        <hr>
+        {% endfor %}
+
+        <button>Kaydet</button>
+    </form>
+</div>
+{% endblock %}

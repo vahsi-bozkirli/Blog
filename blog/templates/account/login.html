@@ -1,0 +1,24 @@
+{% extends 'BlogApp/index.html' %}
+{% block title %} {{ blog.title }} {% endblock %}
+{% block content %}
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {% for error in form.non.field_errors %}
+            <p>{{ error }}</p>
+        {% endfor %}
+        <div>
+            {% for field in form %}
+            <div>
+                {% if field.errors %}
+                    {{ field.errors }}
+                {% endif %}
+                <label for="{{ field.id_for_label }}"> {{ field.label }}</label>
+                {{ field }}
+            </div>
+            {% endfor %}
+            <button type="submit">Login</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
