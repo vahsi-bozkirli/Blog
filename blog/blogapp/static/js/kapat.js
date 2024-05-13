@@ -3,4 +3,4 @@ setTimeout(function() {
     if (messageList) {
         messageList.parentNode.removeChild(messageList);
     }
-}, 1000);
+}, 4000);

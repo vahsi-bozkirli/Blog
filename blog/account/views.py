@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm,PasswordChangeForm
 
 # Create your views here.
 def user_login(request):
-    if request.user.is_authenticated:
+    if request.user.is_authenticated and "next" in request.GET:
         return redirect("index")
     
     if request.method == "POST":
@@ -40,7 +40,7 @@ def user_register(request):
             form.save()
 
             username = form.cleaned_data["username"]
-            password = form.cleaned_data["password"]
+            password = form.cleaned_data["password1"]
             user = authenticate(request, username=username, password=password)
             login(request, user)
             messages.add_message(request, messages.SUCCESS, "Kayit yapildi")

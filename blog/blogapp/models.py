@@ -9,7 +9,6 @@ class Blog(models.Model):
     desc = RichTextField(null=False)
     date = models.DateTimeField(auto_now_add=True, null=False)
     is_active = models.BooleanField(default=False)
-    user = models.CharField(max_length=30)
 
     def __str__(self):
         return f"{self.title}"

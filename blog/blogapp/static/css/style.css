@@ -2,5 +2,34 @@ table, tr, td{
     width: 50%;
     border: 1px dotted rgb(9, 80, 68);
     border-collapse: collapse;
-    padding: 5px;
+    padding: 50px;
+}
+
+ul,li{
+    list-style-type: none;
+}
+
+.error{
+    list-style-type: none;
+    background-color: rgba(255, 0, 0, 0.568);
+}
+
+.success{
+    list-style-type: none;
+    background-color: rgba(0, 224, 0, 0.671);
+}
+
+.info{
+    list-style-type: none;
+    background-color: rgba(0, 198, 224, 0.671);
+}
+
+.warning{
+    list-style-type: none;
+    background-color: rgba(209, 224, 0, 0.801);
+}
+
+.debug{
+    list-style-type: none;
+    background-color: rgba(192, 75, 228, 0.671);
 }
